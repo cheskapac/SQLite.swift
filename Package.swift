@@ -5,15 +5,12 @@ let package = Package(
     name: "SQLite.swift",
     products: [.library(name: "SQLite", targets: ["SQLite"])],
     targets: [
-        .target(name: "SQLite", dependencies: ["SQLiteObjc"]),
+        .target(name: "SQLite", dependencies: ["SQLiteObjc"], swiftSettings: [.define("SQLITE_SWIFT_SQLCIPHER")]),
         .target(name: "SQLiteObjc"),
         .testTarget(name: "SQLiteTests", dependencies: ["SQLite"], path: "Tests/SQLiteTests")
     ],
     swiftLanguageVersions: [4, 5],
-    dependencies: [.package(url: "https://github.com/antwork/SQLCipher.git", from: "0.0.4")],
-    swiftSettings: [
-        .define("SQLITE_SWIFT_SQLCIPHER"),
-    ]
+    dependencies: [.package(url: "https://github.com/antwork/SQLCipher.git", from: "0.0.4")]
 )
 
 #if os(Linux)
