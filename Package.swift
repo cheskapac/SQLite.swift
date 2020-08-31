@@ -10,7 +10,7 @@ let package = Package(
         .testTarget(name: "SQLiteTests", dependencies: ["SQLite"], path: "Tests/SQLiteTests")
     ],
     swiftLanguageVersions: [4, 5],
-    dependencies = [.package(url: "https://github.com/antwork/SQLCipher.git", from: "0.0.4")],
+    dependencies: [.package(url: "https://github.com/antwork/SQLCipher.git", from: "0.0.4")],
     swiftSettings: [
         .define("SQLITE_SWIFT_SQLCIPHER"),
     ]
