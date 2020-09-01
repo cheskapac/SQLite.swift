@@ -14,9 +14,8 @@ let package = Package(
             name: "SQLite",
             dependencies: [
                 "SQLiteObjc",
-                .product(name: "SQLCipher", package: "SQLCipher"),
+                "SQLCipher"
             ],
-            path: "Sources/SQLite",
             swiftSettings: [
                 .define("SQLITE_SWIFT_SQLCIPHER")
             ]
@@ -29,14 +28,3 @@ let package = Package(
         )
     ]
 )
-
-#if os(Linux)
-    package.dependencies = [.package(url: "https://github.com/stephencelis/CSQLite.git", from: "0.0.3")]
-    package.targets = [
-        .target(name: "SQLite", exclude: ["Extensions/FTS4.swift", "Extensions/FTS5.swift"]),
-        .testTarget(name: "SQLiteTests", dependencies: ["SQLite"], path: "Tests/SQLiteTests", exclude: [
-            "FTS4Tests.swift",
-            "FTS5Tests.swift"
-        ])
-    ]
-#endif
