@@ -24,6 +24,7 @@ let package = Package(
             ]
         ),
         .target(name: "SQLiteObjc"),
+        .target(name: "SQLCipher"),
         .testTarget(
             name: "SQLiteTests",
             dependencies: ["SQLite"],
