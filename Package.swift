@@ -16,6 +16,7 @@ let package = Package(
                 "SQLiteObjc",
                 .product(name: "SQLCipher", package: "SQLCipher"),
             ],
+            path: "Sources/SQLite",
             swiftSettings: [
                 .define("SQLITE_SWIFT_SQLCIPHER")
             ]
